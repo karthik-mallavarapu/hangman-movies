@@ -23,18 +23,18 @@ class HangmanServer:
         for line in f:
             line.rstrip()
             self.movie_list.append(line.lower())
-#Fetch a movie name randomly from the list of movies in the file movies.txt
     def GetMovieName(self):
+        """Fetch a movie name randomly from the list of movies in the file movies.txt"""
         self.movie_counter += 1
         movie_random_index = random.randint(0,len(self.movie_list) - 1)
         moviename = self.movie_list[movie_random_index].rstrip()
         return moviename.split(' ')
-#Connect function does all the important work beginning with picking out a random movie name 
-#with the help of function GetMovieName and listens for incoming connections.
-#Server hides all the letters in the movie name, except for the first letter and sends it to 
-#the client. Movie names can also have multiple words and so spaces are to be treated seperately. 
-#Once a movie name is correctly guessed, servers picks out a new movie name and the game continues.
     def Connect(self):
+        """Connect function does all the important work beginning with picking out a random movie name 
+        with the help of function GetMovieName and listens for incoming connections.
+        Server hides all the letters in the movie name, except for the first letter and sends it to 
+        the client. Movie names can also have multiple words and so spaces are to be treated seperately. 
+        Once a movie name is correctly guessed, servers picks out a new movie name and the game continues."""
         print "Welcome to movie hangman!\nGuess the name of the hollywood movie\n" 
         host = ''
         port = 50000
